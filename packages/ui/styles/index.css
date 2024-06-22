@@ -1,0 +1,58 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: auto;
+}
+
+/* Layout Menu */
+.main-layout-container {
+  height: inherit;
+  overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(51, 133, 255);
+  border-radius: 10px;
+}
+
+.section-scrollbar {
+  overflow: auto;
+  /*Graceful degradation para Firefox*/
+  overflow: overlay;
+}
+
+/*Webkit(Chrome, Android browser, Safari, Edge...)*/
+.section-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.section-scrollbar:hover::-webkit-scrollbar {
+  display: initial;
+}
+
+.section-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #09c;
+}

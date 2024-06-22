@@ -1,0 +1,17 @@
+.backgroundCover {
+  background-image: url("../../publicImages/img/cover-login.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 650px) {
+  .backgroundMobile {
+    background-image: url("../../publicImages/img/cover-login-mobile.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
