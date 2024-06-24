@@ -1,14 +1,14 @@
 import { WrapperProvider } from '@repo/ui/containers'
 
-const mainTitle = 'Bóveda Fiscal'
+const mainTitle = 'Salud Conecta'
 
 export const metadata = {
   title: mainTitle,
-  description: 'Bóveda Fiscal by Covalu',
+  description: 'Salud Conecta by Instituto Nacional de Cancerología',
   generator: 'Next.js',
   applicationName: mainTitle,
   referrer: 'origin-when-cross-origin',
-  keywords: ['Bóveda Fiscal', 'Nómina', 'CFDI'],
+  keywords: ['Salud Conecta', 'Nómina', 'CFDI'],
   authors: [{ name: 'Covalu S. C.' }]
 }
 
