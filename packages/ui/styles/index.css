@@ -9,7 +9,7 @@
 html,
 body,
 #__next {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   box-sizing: border-box;
 }
@@ -34,7 +34,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(51, 133, 255);
+  background: #6b5594;
   border-radius: 10px;
 }
 

@@ -13,7 +13,7 @@ import '../styles/index.css'
 
 dayjs.locale('es-us')
 
-const mainColor = '#1677ff'
+const mainColor = '#6b5594'
 const bgMenu = 'rgb(37, 172, 219)'
 
 const defaultThemLayout = {
@@ -63,7 +63,7 @@ const WrapperProvider = (props) => {
           }
         }}
       >
-        <App className='main-layout-container'>
+        <App>
           <ProviderGeneralContext menuToRender={menuToRender}>
             <ProviderError>{props.children}</ProviderError>
           </ProviderGeneralContext>

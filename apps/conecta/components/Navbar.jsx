@@ -1,22 +1,94 @@
 "use client"
-import { MenuFoldOutlined } from '@ant-design/icons'
-import { FormContainer } from '@repo/ui/containers'
-import { Button, Flex, Image, Form, Modal, Grid, Row, Col } from 'antd'
-import registerForm from '@/constants/NavBar/registerForm'
+import { FaTree } from "react-icons/fa";
 import React, { useState } from 'react'
-const { useBreakpoint } = Grid
+import { GiHamburgerMenu } from "react-icons/gi";
+import { Drawer, Modal } from "antd";
+import Link from "next/link";
+import { FormContainer } from "@repo/ui/containers";
 
 const Navbar = () => {
-    const [form] = Form.useForm()
-    const [openModal, setopenModal] = useState(false)
-    const { md } = useBreakpoint()
+    const [openMenu, setOpenMenu] = useState(false)
+    const [openLogin, setOpenLogin] = useState(false)
+    const [openRegister, setOpenRegister] = useState(false)
 
-    const handleRegister = () => {
-        setopenModal(false)
-    }
     return (
         <>
-            {!md ? <Flex align='center' className=' border-slate-600 bg-slate-300 py-1.5' justify='space-between'>
+            <div className="bg-[#6b5594] lg:bg-white py-4 px-6 flex justify-between items-center">
+                <GiHamburgerMenu className='text-white text-3xl lg:hidden' onClick={setOpenMenu} />
+                <FaTree />
+                <div className="hidden lg:block">
+                    redes
+                </div>
+                <div className="hidden lg:block">
+                    <button onClick={setOpenLogin}>openlogin</button>
+                </div>
+            </div>
+            <div className="hidden lg:flex bg-[#6b5594] justify-between items-center py-4 px-6 gap-4">
+                <div className="flex gap-6">
+                    <Link className="text-white" href={'/'}>Inicio</Link>
+                    <Link className="text-white" href={'/'}>Inicio</Link>
+                    <Link className="text-white" href={'/'}>Inicio</Link>
+                </div>
+                <div className="flex gap-4">
+                    <p className="text-white">redes</p>
+                    <p className="text-white">redes</p>
+                </div>
+            </div>
+
+            <Drawer
+                onClose={() => setOpenMenu(false)}
+                open={openMenu}
+                placement='left'
+            >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
+
+            <Modal
+                title='Inicio de sesión'
+                open={openLogin}
+                footer={false}
+                onCancel={() => { setOpenLogin(false) }}
+            >
+                <button onClick={setOpenRegister}>registro</button>
+                <p className="text-center text-black text-base mt-4">Ingresa datos del paciente</p>
+                {/* <FormContainer
+                        onSubmit={handleRegister}
+                        titleButton='Registrar'
+                        form={form}
+                        arrayData={registerForm({})}
+                    /> */}
+            </Modal>
+
+            <Modal
+                title='Registro'
+                open={openRegister}
+                footer={false}
+                onCancel={() => { setOpenRegister(false) }}
+            >
+                <p className="text-center text-black text-base mt-4">Ingresa datos del paciente</p>
+                <FormContainer
+                    titleButton='Registrar'
+                    buttonStyle='w-full'
+                    arrayData={[
+                        {
+                            name: 'nombre',
+                            label: 'Nombre',
+                            classInput: 'col-span-6',
+                            isRequired: true
+                        },
+                        {
+                            name: 'nombre',
+                            label: 'Nombre',
+                            classInput: 'col-span-6',
+                            isRequired: true
+                        }
+                    ]}
+                />
+            </Modal>
+
+            {/* {!md ? <Flex align='center' className=' border-slate-600 bg-slate-300 py-1.5' justify='space-between'>
                 <Button size='large' type='link' className='text-red-500' icon={<MenuFoldOutlined />}></Button>
                 <Image width={40} src='https://i.pinimg.com/originals/2d/db/d0/2ddbd0d41fbb0526cfba8c5373b00ae7.png' />
                 <Button size='small' onClick={() => { setopenModal(true) }} type='primary'>Alta Paciente</Button>
@@ -68,7 +140,7 @@ const Navbar = () => {
                         arrayData={registerForm({})}
                     />
                 </Flex>
-            </Modal>
+            </Modal> */}
         </>
     )
 }

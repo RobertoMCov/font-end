@@ -1,3 +1,5 @@
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 import { WrapperProvider } from '@repo/ui/containers'
 
 const mainTitle = 'Salud Conecta'
@@ -12,14 +14,16 @@ export const metadata = {
   authors: [{ name: 'Covalu S. C.' }]
 }
 
-export default function RootLayout ({
+export default function RootLayout({
   children
 }) {
   return (
     <html lang='es'>
       <body>
         <WrapperProvider>
+          <Navbar />
           {children}
+          <Footer />
         </WrapperProvider>
       </body>
     </html>
