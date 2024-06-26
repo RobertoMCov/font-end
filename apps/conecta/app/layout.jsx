@@ -1,4 +1,3 @@
-import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import { WrapperProvider } from '@repo/ui/containers'
 
@@ -23,7 +22,6 @@ export default function RootLayout({
         <WrapperProvider>
           <Navbar />
           {children}
-          <Footer />
         </WrapperProvider>
       </body>
     </html>

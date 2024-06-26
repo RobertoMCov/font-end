@@ -107,7 +107,7 @@ const Boxes = () => {
                                 className={`w-32 h-40 rounded-xl is-clickable cursor-pointer ml-8`}>
                                 <div className="flex flex-col items-center">
                                     <div className="w-28">
-                                        <Image preview={false} src={card.image} />
+                                        <Image  preview={false} src={card.image} />
                                     </div>
                                     <p className="text-center text-white text-2xl">{card.title}</p>
                                 </div>
@@ -124,6 +124,7 @@ const Boxes = () => {
                 onOk={() => { console.log('e') }}
                 onCancel={handleCancel}
                 okText='Agendar'
+                footer={false}
             >
                 {selectedCard && (
                     <div className="flex flex-col items-center">
