@@ -7,12 +7,14 @@ import { Drawer, Flex, Modal, Button, Grid, Image } from "antd";
 import { IoMdLogIn } from "react-icons/io";
 import Link from "next/link";
 import { FormContainer } from "@repo/ui/containers";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaHome, FaBookMedical, FaUser } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import Icons from "./Icons";
 import { useHookRequest, useLocalStorage } from "@repo/ui/hooks";
 import { useRouter } from 'next/navigation'
-
+import { GiMedicalDrip } from "react-icons/gi";
+import { TbMedicineSyrup } from "react-icons/tb";
+import { PiUsersFourFill } from "react-icons/pi";
 const { useFetchRequest, useGetRequest } = useHookRequest
 const { useBreakpoint } = Grid
 
@@ -120,7 +122,7 @@ const Navbar = () => {
 
             <div className="bg-[#6b5594]">
                 <div className="hidden lg:flex justify-between items-center py-4 px-6 gap-4 container mx-auto">
-                    <div className="flex gap-10 text-lg">
+                    <div className="flex gap-13 text-lg">
                         <Link className="text-white " href={'/'}>Inicio</Link>
                         <Link className="text-white " href={'/'}>Especialidades</Link>
                         <Link className="text-white " href={'/'}>Estudios</Link>
@@ -133,12 +135,41 @@ const Navbar = () => {
 
             <Drawer
                 onClose={() => setOpenMenu(false)}
+                title='Menu'
                 open={openMenu}
                 placement='left'
+            // width={'40%'}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Flex className="text-2xl" vertical gap={20} >
+                    <Flex onClick={setOpenLogin} >
+                        <IoMdLogIn size={30} />
+                        <p>Iniciar sesión</p>
+                    </Flex>
+                    <Flex onClick={setOpenLogin} className="mb-10">
+                        <FaUser size={30} />
+                        <p>Perfil</p>
+                    </Flex>
+                    <Flex align="center " gap={5}>
+                        <FaHome size={30} />
+                        <Link className="text-black " href={'/'}>Inicio</Link>
+                    </Flex>
+                    <Flex align="center " gap={5}>
+                        <FaBookMedical size={30} />
+                        <Link className="text-black " href={'/'}>Especialidades</Link>
+                    </Flex>
+                    <Flex align="center " gap={5}>
+                        <GiMedicalDrip size={30} />
+                        <Link className="text-black " href={'/'}>Estudios</Link>
+                    </Flex>
+                    <Flex align="center " gap={5}>
+                        <PiUsersFourFill size={30} />
+                        <Link className="text-black " href={'/'}>Platicas</Link>
+                    </Flex>
+                    <Flex align="center " gap={5}>
+                        <TbMedicineSyrup size={30} />
+                        <Link className="text-black " href={'/'}>Medicamentos</Link>
+                    </Flex>
+                </Flex>
             </Drawer>
 
             <Modal
