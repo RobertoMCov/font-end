@@ -7,11 +7,11 @@ import Footer from './Footer'
 import Sessions from './Sessions'
 
 module.exports = {
-    NavBar,
-    Boxes,
-    HomeView,
-    Icons,
-    Talks,
-    Sessions,
-    Footer
+  NavBar,
+  Boxes,
+  HomeView,
+  Icons,
+  Talks,
+  Sessions,
+  Footer
 }
