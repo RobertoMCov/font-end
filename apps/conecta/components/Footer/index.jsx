@@ -3,9 +3,9 @@ import React from 'react'
 import Icons from '@/components/Icons'
 import { FaWhatsapp } from 'react-icons/fa'
 import Link from 'next/link'
-const Footer = () => {
+const Footer = ({ darkMode = false }) => {
   return (
-    <Row className='bg-[#6B5594] text-white mt-20 p-5'>
+    <Row className={`${darkMode ? ' mt-20 p-5' : 'bg-[#6B5594] text-white mt-20 p-5'}`}>
       <Col span={6}>
         <Flex align='center' gap={5} vertical>
           <Image width={60} preview={false} src='./img/logo.png' />

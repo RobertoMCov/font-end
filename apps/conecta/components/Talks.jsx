@@ -10,7 +10,7 @@ const Talks = () => {
 
   return (
     <>
-      <div id='platicas' className='mt-5 p-3'>
+      <div id='platicas' className='mt-10 p-3'>
         <p className={`${!md ? 'text-3xl' : 'text-5xl'} text-center font-medium mb-5`}>Pláticas Informativas</p>
         <Row gutter={10}>
           <Col span={!md ? 12 : 9}>
@@ -28,7 +28,7 @@ const Talks = () => {
               <p className='text-2xl text-[#37BA9A]'>Conciencia </p>
               <p className='text-2xl text-[#F5577D]'>Acción y responsabilidad de los gobiernos</p>
             </Flex>
-                 </Col>}
+          </Col>}
         </Row>
       </div>
       <Drawer title='Platicas Informativas' onClose={() => setopenTalks(false)} open={openTalks}>
@@ -47,7 +47,7 @@ const Talks = () => {
           Motivar a las personas a realizarse las pruebas de detección según las recomendaciones para su edad y grupo de riesgo.
           <br /><span className='text-lg'>
             Fomentar estilos de vida saludables:
-                </span><br />
+          </span><br />
 
           Crear conciencia sobre los factores de riesgo del cáncer que se pueden modificar, como el tabaquismo, el consumo excesivo de alcohol, la dieta poco saludable y la falta de actividad física.
           Educar sobre la importancia de adoptar hábitos saludables como una alimentación balanceada, ejercicio regular, mantener un peso adecuado y evitar el consumo de tabaco y alcohol en exceso para reducir el riesgo de cáncer.
@@ -55,15 +55,15 @@ const Talks = () => {
 
       </Drawer>
 
-      <p className='text-center font-semibold text-5xl mb-3'>Entrega de medicamento</p>
+      <p id='entregas' className='text-center font-semibold text-3xl md:text-5xl mb-3'>Entrega de medicamento</p>
 
-      <section id='entrega' className='flex gap-5 '>
-        <div className="w-3/6 flex gap-4 justify-center flex-col items-center bg-no-repeat bg-cover bg-[url('https://statics-cuidateplus.marca.com/cms/styles/natural/azblob/desarrollo-medicamento.jpg.webp?itok=sjVxbmsR')]">
-          <p className='text-white text-2xl font-bold'>Medicamento</p>
+      <section className='flex gap-5 '>
+        <div className="w-3/6 flex gap-4 rounded-2xl justify-center flex-col items-center bg-no-repeat bg-cover bg-[url('https://statics-cuidateplus.marca.com/cms/styles/natural/azblob/desarrollo-medicamento.jpg.webp?itok=sjVxbmsR')]">
+          <p className='text-black text-2xl font-bold bg-white p-1 rounded-xl'>Medicamento</p>
           <Button type='primary'>Fechas</Button>
         </div>
-        <div className="w-3/6 flex gap-4 justify-center h-40 flex-col items-center bg-no-repeat bg-cover bg-[url('https://slp.gob.mx/ssalud/Noticias/vacunacion.jpg')]">
-          <p className='text-white text-2xl font-bold'>Vacunas</p>
+        <div className="w-3/6 flex gap-4 rounded-2xl justify-center h-48 flex-col items-center bg-no-repeat bg-cover bg-[url('https://slp.gob.mx/ssalud/Noticias/vacunacion.jpg')]">
+          <p className='text-black text-2xl font-bold  bg-white p-1 rounded-xl'>Vacunas</p>
           <Button type='primary'>Fechas</Button>
         </div>
       </section>

@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar'
 import { WrapperProvider } from '@repo/ui/containers'
 
 const mainTitle = 'Salud Conecta'
@@ -20,7 +19,6 @@ export default function RootLayout ({
     <html lang='es'>
       <body>
         <WrapperProvider>
-          <Navbar />
           {children}
         </WrapperProvider>
       </body>

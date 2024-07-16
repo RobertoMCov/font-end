@@ -2,23 +2,24 @@
 import { TbLogout, TbMedicineSyrup } from 'react-icons/tb'
 import React, { useState, useRef } from 'react'
 import { GiHamburgerMenu, GiMedicalDrip } from 'react-icons/gi'
-import { Drawer, Flex, Modal, Button, Grid, Image, Tour, Divider, Space } from 'antd'
+import { Drawer, Flex, Modal, Button, Grid, Image, Tour } from 'antd'
 import Link from 'next/link'
 import { FormContainer } from '@repo/ui/containers'
 import Icons from './Icons'
 import { useHookRequest, useLocalStorage } from '@repo/ui/hooks'
-import { EllipsisOutlined } from '@ant-design/icons'
+
 
 import { TfiEmail } from 'react-icons/tfi'
 import { FaWhatsapp, FaHome, FaBookMedical, FaUser } from 'react-icons/fa'
 import { IoMdLogIn } from 'react-icons/io'
 import { useRouter } from 'next/navigation'
+import { LuHelpingHand } from "react-icons/lu";
 
 import { PiUsersFourFill } from 'react-icons/pi'
 const { useFetchRequest, useGetRequest } = useHookRequest
 const { useBreakpoint } = Grid
 
-const Navbar = () => {
+const Navbar = ({ darkMode = false }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const [openLogin, setOpenLogin] = useState(false)
   const [openRegister, setOpenRegister] = useState(false)
@@ -34,30 +35,25 @@ const Navbar = () => {
   const ref4 = useRef(null)
   const ref5 = useRef(null)
   const ref6 = useRef(null)
+  const ref7 = useRef(null)
   const [open, setOpen] = useState(false)
 
   const steps = [
     {
       title: 'Iniciar sesión',
       description: 'Iniciar sesión para acceder a tu perfil y agendar o ver tu citas',
-      cover: (
-        <Image
-          preview={false} width={40}
-          alt='imagenLogin'
-          src='/img/logo.png'
-        />
-      ),
-
-      target: () => ref1.current
+      target: () => ref1.current,
+      nextText: 'Siguiente',
     },
     {
       title: 'Especialidades',
       description: 'Navega atraves de las diferentes especialidades y agenda tu cita',
-      target: () => ref2.current
+      target: () => ref2.current,
+      
     },
     {
       title: 'Estudios',
-      description: 'Ageda el estudio que deseas realizarte',
+      description: 'Agenda el estudio que deseas realizarte',
       target: () => ref3.current
     },
     {
@@ -74,7 +70,12 @@ const Navbar = () => {
       title: 'Sesiones',
       description: 'Revisa que tipo de sesión deseas agendar',
       target: () => ref6.current
-    }
+    },
+    {
+      title: 'Redes Sociales',
+      description: 'Revisa nuestras redes sociales para avisos importantes',
+      target: () => ref7.current
+    },
   ]
   /// ////////////
 
@@ -129,13 +130,10 @@ const Navbar = () => {
 
   return (
     <>
-      {!folio && <Button type='primary' onClick={() => setOpen(true)}>
-        Tutorial
-      </Button>}
       <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
-      <div className='bg-[#6b5594] lg:bg-white'>
+      <div className={`${darkMode ? ' background: linear-gradient(90deg, rgba(107,85,148,1) 0%, rgba(0,0,0,1) 32%, rgba(0,0,0,1) 77%, rgba(107,85,148,1) 100%) text-white' : 'lg:bg-white bg-white'}  `}>
         <div className='py-4 px-6 flex justify-between items-center container mx-auto'>
-          <GiHamburgerMenu className='text-white text-3xl lg:hidden' onClick={setOpenMenu} />
+          <GiHamburgerMenu className='text-black text-3xl lg:hidden' onClick={setOpenMenu} />
           <Image preview={false} width={50} src='./img/logo.png' />
           {lg && <div />}
           {lg && <>
@@ -144,7 +142,7 @@ const Navbar = () => {
                 <TfiEmail size={20} />
                 <div>
                   <p className='font-semibold'>Correo Electronico</p>
-                  <p>Saludconecta@gmail.com</p>
+                  <p>institutoNacionalC@gmail.com</p>
                 </div>
               </Flex>
               <Flex gap={10} align='center'>
@@ -170,12 +168,16 @@ const Navbar = () => {
                   <p>Iniciar sesión</p>
                   <IoMdLogIn className='text-xl' />
                 </button>}
+              <button onClick={() => setOpen(true)} className='flex items-center gap-2'>
+                <p>Tutorial</p>
+                <LuHelpingHand className='text-xl' />
+              </button>
             </div>
-                 </>}
+          </>}
         </div>
       </div>
 
-      <div className='bg-[#6b5594]'>
+      <div className={`${darkMode ? ' background: linear-gradient(90deg, rgba(107,85,148,1) 0%, rgba(0,0,0,1) 32%, rgba(0,0,0,1) 77%, rgba(107,85,148,1) 100%)' : ' bg-[#6b5594]'}`}>
         <div className='hidden lg:flex justify-between items-center py-4 px-6 gap-4 container mx-auto'>
           <div className='flex gap-12 text-lg'>
             <Link className='text-white ' href='/#'>Inicio</Link>
@@ -185,45 +187,47 @@ const Navbar = () => {
             <Link ref={ref5} className='text-white ' href='/#entregas'>Medicamentos</Link>
             <Link ref={ref6} className='text-white ' href='/#sesiones'>Sesiones</Link>
           </div>
-          <Icons />
+          <div ref={ref7}>
+            <Icons />
+          </div>
         </div>
       </div>
 
       <Drawer
         onClose={() => setOpenMenu(false)}
-        title='Menu'
+        title={<p className='text-white'>MENU</p>}
         open={openMenu}
         placement='left'
-        style={{ backgroundColor: '#6b5594' }}
+        style={{ backgroundColor: 'white' }}
       >
-        <Flex className='text-2xl text-white' vertical gap={20}>
+        <Flex className='text-2xl text-white divide-y  divide-blue-400' vertical gap={20}>
           <Flex onClick={setOpenLogin}>
-            <IoMdLogIn size={30} />
-            <p>Iniciar sesión</p>
+            <IoMdLogIn className='text-[#6b5594]' size={30} />
+            <p className='text-black '>Iniciar sesión</p>
           </Flex>
-          <Flex onClick={setOpenLogin} className='mb-10'>
-            <FaUser size={30} />
-            <p>Perfil</p>
-          </Flex>
-          <Flex align='center ' gap={5}>
-            <FaHome size={30} />
-            <Link className='text-white ' href='/'>Inicio</Link>
+          <Flex className=''>
+            <FaUser className='text-[#6b5594]' size={30} />
+            <Link className='text-black ' href='/'>Perfil</Link>
           </Flex>
           <Flex align='center ' gap={5}>
-            <FaBookMedical size={30} />
-            <Link className='text-white ' href='/#sesiones'>Especialidades</Link>
+            <FaHome className='text-[#6b5594]' size={30} />
+            <Link className='text-black ' href='/'>Inicio</Link>
+          </Flex>
+          <Flex align='center' gap={5}>
+            <FaBookMedical className='text-[#6b5594]' size={28} />
+            <Link className='text-black ' href='/#especialidades'>Especialidades</Link>
           </Flex>
           <Flex align='center ' gap={5}>
-            <GiMedicalDrip size={30} />
-            <Link className='text-white ' href='/'>Estudios</Link>
+            <GiMedicalDrip className='text-[#6b5594]' size={30} />
+            <Link className='text-black ' href='/#estudios'>Estudios</Link>
           </Flex>
           <Flex align='center ' gap={5}>
-            <PiUsersFourFill size={30} />
-            <Link className='text-white ' href='/#platicas'>Platicas</Link>
+            <PiUsersFourFill className='text-[#6b5594]' size={30} />
+            <Link className='text-black ' href='/#platicas'>Platicas</Link>
           </Flex>
           <Flex align='center ' gap={5}>
-            <TbMedicineSyrup size={30} />
-            <Link className='text-white ' href='/#entregas'>Medicamentos</Link>
+            <TbMedicineSyrup className='text-[#6b5594] ' size={30} />
+            <Link onClick={() => { setOpenMenu(false) }} className='text-black ' href='/#sesiones'>Medicamentos</Link>
           </Flex>
         </Flex>
       </Drawer>
@@ -238,7 +242,7 @@ const Navbar = () => {
       >
         <FormContainer
           onSubmit={(values) => setUserLogged(values.folio)}
-                    // form={form}
+          // form={form}
           arrayData={[
             {
               name: 'folio',
@@ -262,7 +266,7 @@ const Navbar = () => {
                 Iniciar sesión
               </Button>
             </div>
-                    }
+          }
         />
       </Modal>
 

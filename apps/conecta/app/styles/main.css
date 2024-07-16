@@ -1,0 +1,4 @@
+.darkMode {
+    background: linear-gradient(90deg, rgba(107,85,148,1) 0%, rgba(0,0,0,1) 32%, rgba(0,0,0,1) 77%, rgba(107,85,148,1) 100%) !important;
+    color: #fff !important;
+}
