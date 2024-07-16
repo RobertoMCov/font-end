@@ -1,5 +1,5 @@
 'use client'
-import { Carousel, Flex, Image, Modal, Grid, Row, Col } from 'antd'
+import { Carousel, Image, Modal, Grid, Row, Col } from 'antd'
 import React, { useState } from 'react'
 import { cardsSpecialties, cardsStudies } from '@/constants/Boxes/cardsBoxes'
 

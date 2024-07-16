@@ -8,7 +8,6 @@ import { FormContainer } from '@repo/ui/containers'
 import Icons from './Icons'
 import { useHookRequest, useLocalStorage } from '@repo/ui/hooks'
 
-
 import { TfiEmail } from 'react-icons/tfi'
 import { FaWhatsapp, FaHome, FaBookMedical, FaUser } from 'react-icons/fa'
 import { IoMdLogIn } from 'react-icons/io'
@@ -251,7 +250,8 @@ const Navbar = ({ darkMode = false }) => {
               isRequired: true,
               classInput: 'col-span-12',
               size: 'middle',
-              maxLength: '9'
+              maxLength: '9',
+              charactersMin: 9
             }
           ]}
           topComponent={
@@ -296,7 +296,8 @@ const Navbar = ({ darkMode = false }) => {
               isRequired: true,
               classInput: 'col-span-6',
               size: 'middle',
-              maxLength: '9'
+              maxLength: '9',
+              charactersMin: 9
             },
             {
               name: 'nombre',
