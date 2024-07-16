@@ -1,6 +1,7 @@
+import React from 'react'
 import { WrapperProvider } from '@repo/ui/containers'
-
 const mainTitle = 'Salud Conecta'
+
 
 export const metadata = {
   title: mainTitle,
@@ -12,9 +13,11 @@ export const metadata = {
   authors: [{ name: 'Covalu S. C.' }]
 }
 
-export default function RootLayout ({
+export default function RootLayout({
+
   children
 }) {
+
   return (
     <html lang='es'>
       <body>
