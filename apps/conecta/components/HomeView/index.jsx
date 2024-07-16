@@ -20,7 +20,7 @@ const HomeView = ({ darkMode = false }) => {
                 <Col className='p-5 text-center' span={14}>
                     <p className={`${md ? 'text-6xl mb-10' : 'text-3xl'} text-white font-medium text-center`}>SALUD CONECTA</p>
                     <p className={` ${md ? 'text-4xl mb-10' : 'text-xl'}  text-white text-center`}>Instituto Nacional de Cancerología</p>
-                    {md && <p className='text-white font-medium text-center'>Sitio web del Instituto Nacional de Cancerología brindando aguilizacion en sus servicios <br />Estamos aqui para su cuidado</p>}
+                    {md && <p className='text-white font-medium text-center'>Sitio web del Instituto Nacional de Cancerología brindando aguilización en sus servicios <br />Estamos aquí para su cuidado</p>}
                     <Button onClick={() => { finishForm('Debes iniciar sesión para poder agendar una cita') }} className='bg-[#DB71A2] text-white mt-5'>Agendar</Button>
                 </Col>
                 <Col span={10}>

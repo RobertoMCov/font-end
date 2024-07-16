@@ -17,7 +17,7 @@ const Footer = ({ darkMode = false }) => {
         <p className='text-lg'>Contactanos</p>
         <hr style={{ width: '50%' }} className='mt-2' />
         <p>(+52) 5631403719 </p>
-        <p>Saludconecta@gmail.com</p>
+        <p>institutoNacionalC@gmail.com</p>
         <p>Lunes- Viernes: 7 am - 1 p.m 2 p.m - 5 p.m Sábados: 8 a.m -1 pm</p>
       </Col>
       <Col span={6}>
@@ -51,13 +51,13 @@ const Footer = ({ darkMode = false }) => {
             <p>(+52) 5631403719 </p>
           </div>
         </Flex>
-        <Flex gap={10} align='center'>
+        {/* <Flex gap={10} align='center'>
           <FaWhatsapp size={25} />
           <div>
             <p className='font-semibold'>WhatsApp</p>
             <p>(+52) 5514983019 </p>
           </div>
-        </Flex>
+        </Flex> */}
       </Col>
     </Row>
   )
